@@ -9,7 +9,12 @@
 UCLASS()
 class ATriShiftPlayerController : public APlayerController
 {
+private:
+
 	GENERATED_BODY()
+
+	bool isInteracting;
+
 
 public:
 	ATriShiftPlayerController();
@@ -20,11 +25,15 @@ public:
 	UFUNCTION()
 	void MoveRight(float axisValue);
 
+	void Interact();
+
 protected:
 
 	// Begin PlayerController interface
 	virtual void PlayerTick(float DeltaTime) override;
 	virtual void SetupInputComponent() override;
+
+	bool IsInteracting();
 		
 };
 

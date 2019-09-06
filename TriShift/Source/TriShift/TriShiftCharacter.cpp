@@ -11,11 +11,15 @@
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "Materials/Material.h"
 #include "Engine/World.h"
+#include "ShiftTrigger.h"
 
 ATriShiftCharacter::ATriShiftCharacter()
 {
 	// Set size for player capsule
+
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
+	GetCapsuleComponent()->OnComponentBeginOverlap.AddDynamic(this, &ATriShiftCharacter::OnActorBeginOverlap);
+	GetCapsuleComponent()->OnComponentEndOverlap.AddDynamic(this, &ATriShiftCharacter::OnActorEndOverlap);
 
 	// Don't rotate character to camera direction
 	bUseControllerRotationPitch = false;
@@ -45,6 +49,9 @@ ATriShiftCharacter::ATriShiftCharacter()
 	// Activate ticking in order to update the cursor every frame.
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.bStartWithTickEnabled = true;
+
+	canTriggerShift = false;
+	interact = false;
 }
 
 void ATriShiftCharacter::Tick(float DeltaSeconds)
@@ -55,4 +62,29 @@ void ATriShiftCharacter::Tick(float DeltaSeconds)
 	{
 		
 	}
+}
+
+void ATriShiftCharacter::OnActorBeginOverlap(UPrimitiveComponent *OverlappedComp, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
+{
+	if (AShiftTrigger *actor = (AShiftTrigger *)OtherActor)
+	{
+		canTriggerShift = true;
+		if (interact)
+		{
+			actor->Interact();
+		}
+	}
+}
+
+void ATriShiftCharacter::OnActorEndOverlap(UPrimitiveComponent *OverlappedComp, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex)
+{
+	if ((AShiftTrigger *)OtherActor)
+	{
+		canTriggerShift = false;
+	}
+}
+
+void ATriShiftCharacter::SetInteract(bool act)
+{
+	interact = act;
 }
