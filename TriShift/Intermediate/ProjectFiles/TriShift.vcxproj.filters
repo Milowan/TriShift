@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\TriShift.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{B444B836-2BB6-4F37-A84F-E84DA65B136D}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\TriShift.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\TriShiftEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{99F56A3B-3AF7-4BB6-A040-E14BFAC23483}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\TriShift">
+      <UniqueIdentifier>{68C64B96-6864-4387-965F-A04613CBAC28}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\TriShift\TriShift.Build.cs">
+      <Filter>Source\TriShift</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\TriShift\APhase.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\blueTrigger.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\Interactable.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\PhaseManager.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\redTrigger.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\ShiftTrigger.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\TriShiftCharacter.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\TriShiftGameMode.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\TriShiftPlayerController.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\TriShift.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\Wall.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\redWall.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\bluePhase.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\blueWall.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\redPhase.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\Switch.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\SwitchManager.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\StretchPhase.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\TriShift\APhase.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\blueTrigger.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\Interactable.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\PhaseManager.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\redTrigger.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\ShiftTrigger.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\Templates.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\TriShift.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\TriShiftCharacter.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\TriShiftGameMode.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\TriShiftPlayerController.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\Types.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\Wall.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\redWall.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\bluePhase.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\blueWall.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\redPhase.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\Switch.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\SwitchManager.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\StretchPhase.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source\TriShift\Private">
+      <UniqueIdentifier>{8048859a-52ee-42cb-ba74-72fcec973f85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\TriShift\Public">
+      <UniqueIdentifier>{365bc1e9-309b-4069-a2dc-fbe8e2042d57}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
