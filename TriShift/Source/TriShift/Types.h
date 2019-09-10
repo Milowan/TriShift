@@ -7,3 +7,10 @@ enum phaseType
 	bluePhase,
 	yellowPhase
 };
+
+enum switchPhase
+{
+	first,
+	second,
+	third
+};

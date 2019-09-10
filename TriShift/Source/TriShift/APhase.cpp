@@ -9,6 +9,8 @@ AAPhase::AAPhase()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	active = true;
+
 }
 
 // Called when the game starts or when spawned
@@ -37,10 +39,42 @@ phaseType AAPhase::GetPhaseType()
 
 void AAPhase::ActivatePhase()
 {
+	if (!active)
+	{
+		for (std::vector <AWall *>::iterator scan = walls.begin(); scan != walls.end(); ++scan)
+		{
+			AWall *wall = *scan;
 
+			wall->GetMesh()->SetVisibility(true);
+			wall->GetMesh()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+		}
+	}
+
+	active = true;
 }
 
 void AAPhase::DeactivatePhase()
 {
+	if (active)
+	{
+		for (std::vector <AWall *>::iterator scan = walls.begin(); scan != walls.end(); ++scan)
+		{
+			AWall *wall = *scan;
 
+			wall->GetMesh()->SetVisibility(false);
+			wall->GetMesh()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		}
+	}
+
+	active = false;
+}
+
+bool AAPhase::Active()
+{
+	return active;
+}
+
+void AAPhase::IsActive(bool t)
+{
+	active = t;
 }

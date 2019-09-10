@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Types.h"
 #include <vector>
+#include "Wall.h"
 #include "APhase.generated.h"
 
 UCLASS()
@@ -14,21 +15,22 @@ class TRISHIFT_API AAPhase : public AActor
 private:
 	GENERATED_BODY()
 
-		phaseType type;
+	phaseType type;
 
-
-	
-public:	
-	// Sets default values for this actor's properties
-	AAPhase();
+	bool active;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
+	// Sets default values for this actor's properties
+	AAPhase();
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	std::vector <AWall *> walls;
 
 	void SetPhaseType(phaseType t);
 
@@ -37,5 +39,8 @@ public:
 	void ActivatePhase();
 
 	void DeactivatePhase();
+
+	bool Active();
+	void IsActive(bool t);
 
 };

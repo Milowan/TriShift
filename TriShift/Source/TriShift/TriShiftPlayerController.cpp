@@ -10,7 +10,6 @@
 ATriShiftPlayerController::ATriShiftPlayerController()
 {
 	bShowMouseCursor = true;
-	isInteracting = false;
 	DefaultMouseCursor = EMouseCursor::Crosshairs;
 }
 
@@ -44,14 +43,9 @@ void ATriShiftPlayerController::MoveRight(float axisValue)
 void ATriShiftPlayerController::Interact()
 {
 	ATriShiftCharacter *player = (ATriShiftCharacter *)GetPawn();
-	if (player->canTriggerShift)
+	if (player->canInteract)
 	{
-		isInteracting = true;
 		ATriShiftCharacter *player = (ATriShiftCharacter *) GetPawn();
-		player->
-	}
-	else
-	{
-		isInteracting = false;
+		player->GetInteractable()->Interact();
 	}
 }

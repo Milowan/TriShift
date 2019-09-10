@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Interactable.h"
 #include "TriShiftCharacter.generated.h"
 
 UCLASS(Blueprintable)
@@ -21,19 +22,21 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
 
-	bool interact;
+	AInteractable *interactable;
 
 public:
 
-	bool canTriggerShift;
+	bool canInteract;
 
 	ATriShiftCharacter();
 
 	// Called every frame.
 	virtual void Tick(float DeltaSeconds) override;
 
+	UFUNCTION(BlueprintCallable)
 	void OnActorBeginOverlap(UPrimitiveComponent *OverlappedComp, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult);
 
+	UFUNCTION(BlueprintCallable)
 	void OnActorEndOverlap(UPrimitiveComponent *OverlappedComp, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex);
 
 	/** Returns TopDownCameraComponent subobject **/
@@ -41,7 +44,7 @@ public:
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 
-	void SetInteract(bool act);
+	AInteractable *GetInteractable();
 
 };
 

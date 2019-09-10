@@ -13,8 +13,6 @@ private:
 
 	GENERATED_BODY()
 
-	bool isInteracting;
-
 
 public:
 	ATriShiftPlayerController();
@@ -32,8 +30,6 @@ protected:
 	// Begin PlayerController interface
 	virtual void PlayerTick(float DeltaTime) override;
 	virtual void SetupInputComponent() override;
-
-	bool IsInteracting();
 		
 };
 

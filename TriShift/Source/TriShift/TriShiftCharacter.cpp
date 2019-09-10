@@ -11,7 +11,6 @@
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "Materials/Material.h"
 #include "Engine/World.h"
-#include "ShiftTrigger.h"
 
 ATriShiftCharacter::ATriShiftCharacter()
 {
@@ -50,8 +49,8 @@ ATriShiftCharacter::ATriShiftCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.bStartWithTickEnabled = true;
 
-	canTriggerShift = false;
-	interact = false;
+	canInteract = false;
+	interactable = NULL;
 }
 
 void ATriShiftCharacter::Tick(float DeltaSeconds)
@@ -66,25 +65,22 @@ void ATriShiftCharacter::Tick(float DeltaSeconds)
 
 void ATriShiftCharacter::OnActorBeginOverlap(UPrimitiveComponent *OverlappedComp, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
 {
-	if (AShiftTrigger *actor = (AShiftTrigger *)OtherActor)
+	if (AInteractable *actor = (AInteractable *)OtherActor)
 	{
-		canTriggerShift = true;
-		if (interact)
-		{
-			actor->Interact();
-		}
+		canInteract = true;
+		interactable = actor;
 	}
 }
 
 void ATriShiftCharacter::OnActorEndOverlap(UPrimitiveComponent *OverlappedComp, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex)
 {
-	if ((AShiftTrigger *)OtherActor)
+	if ((AInteractable *)OtherActor)
 	{
-		canTriggerShift = false;
+		canInteract = false;
 	}
 }
 
-void ATriShiftCharacter::SetInteract(bool act)
+AInteractable* ATriShiftCharacter::GetInteractable()
 {
-	interact = act;
+	return interactable;
 }

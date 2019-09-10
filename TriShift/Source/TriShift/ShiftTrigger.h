@@ -22,8 +22,6 @@ private:
 
 	bool triggered;
 
-	bool redPilled;
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "SimpleThings", meta = (AllowPrivateAccess = "true"))
 	UBoxComponent *collisionBox;
 
@@ -39,5 +37,8 @@ public:
 	phaseType GetTargetPhase();
 
 	virtual void Interact() override;
+
+	bool Triggered();
+	void SetTriggered(bool t);
 
 };

@@ -6,24 +6,10 @@
 #include "GameFramework/Actor.h"
 #include "Types.h"
 #include "TriShiftPlayerController.h"
+#include "ShiftTrigger.h"
+#include "APhase.h"
 #include "Templates.h"
-#include <vector>
 #include "PhaseManager.generated.h"
-
-class AShiftTrigger
-{
-public:
-
-	phaseType GetTargetPhase();
-
-};
-
-class AAPhase
-{
-public:
-
-	phaseType GetPhaseType();
-};
 
 /**
  * 
@@ -35,16 +21,24 @@ private:
 
 	GENERATED_BODY()
 
-	std::vector <AShiftTrigger *> shiftTriggers;
-	std::vector <AAPhase *> phases;
+	TArray<AShiftTrigger *> shiftTriggers;
+	TArray<AAPhase *> phases;
+	TArray<AWall *> walls;
+
+	void AssignWalls();
 
 	ATriShiftPlayerController *pCRef;
 
+protected:
+
+	virtual void BeginPlay() override;
 
 public:
 
 	APhaseManager();
 
 	virtual void Tick(float deltaTime) override;
+
+	void ChangePhase(phaseType target);
 	
 };
