@@ -5,6 +5,7 @@
 #include "Runtime/Engine/Classes/Components/DecalComponent.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "TriShiftCharacter.h"
+#include "Templates.h"
 #include "Engine/World.h"
 
 ATriShiftPlayerController::ATriShiftPlayerController()
@@ -17,6 +18,7 @@ void ATriShiftPlayerController::PlayerTick(float DeltaTime)
 {
 	Super::PlayerTick(DeltaTime);
 
+	ATriShiftCharacter *player = (ATriShiftCharacter *) GetPawn();
 }
 
 void ATriShiftPlayerController::SetupInputComponent()
@@ -42,10 +44,18 @@ void ATriShiftPlayerController::MoveRight(float axisValue)
 
 void ATriShiftPlayerController::Interact()
 {
-	ATriShiftCharacter *player = (ATriShiftCharacter *)GetPawn();
-	if (player->canInteract)
+	ATriShiftCharacter *player = (ATriShiftCharacter *) GetPawn();
+	if (player->GetCanInteract())
 	{
-		ATriShiftCharacter *player = (ATriShiftCharacter *) GetPawn();
 		player->GetInteractable()->Interact();
 	}
+}
+
+void ATriShiftPlayerController::SetupUI()
+{
+	UserInterface = CreateWidget<UUserWidget>(this, UUserWidget::StaticClass());
+	FInputModeGameAndUI Mode;
+	Mode.SetHideCursorDuringCapture(false);
+	SetInputMode(Mode);
+	UserInterface->AddToViewport(9999);
 }

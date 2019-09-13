@@ -20,7 +20,7 @@ void AWall::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	mesh->SetRelativeScale3D(FVector(2, 2, 2));
+	mesh->SetRelativeScale3D(FVector(1, 1, 2));
 
 }
 
@@ -43,10 +43,10 @@ UStaticMeshComponent* AWall::GetMesh()
 
 void AWall::Expand()
 {
-	mesh->SetRelativeScale3D(FVector(4, 2, 2));
+	mesh->SetRelativeScale3D(FVector(9, 1, 2));
 }
 
 void AWall::Contract()
 {
-	mesh->SetRelativeScale3D(FVector(2, 2, 2));
+	mesh->SetRelativeScale3D(FVector(1, 1, 2));
 }

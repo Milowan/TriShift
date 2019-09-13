@@ -8,6 +8,7 @@ AStretchPhase::AStretchPhase()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	active = false;
 
 }
 
@@ -25,17 +26,36 @@ void AStretchPhase::Tick(float DeltaTime)
 
 }
 
-void AStretchPhase::SetPhaseType(switchPhase p)
+void AStretchPhase::TogglePhase(int index)
 {
-	phase = p;
-}
-
-switchPhase AStretchPhase::GetPhaseType()
-{
-	return phase;
-}
-
-void AStretchPhase::TogglePhase()
-{
-
+	if (active)
+	{
+		for (int i = 0; i < walls.size(); ++i)
+		{
+			if (walls[i]->switches[index] == yes)
+			{
+				walls[i]->Contract();
+			}
+			else
+			{
+				walls[i]->Expand();
+			}
+		}
+		active = false;
+	}
+	else
+	{
+		for (int i = 0; i < walls.size(); ++i)
+		{
+			if (walls[i]->switches[index] == no)
+			{
+				walls[i]->Contract();
+			}
+			else
+			{
+				walls[i]->Expand();
+			}
+		}
+		active = true;
+	}
 }

@@ -3,6 +3,7 @@
 #include "TriShiftGameMode.h"
 #include "TriShiftPlayerController.h"
 #include "TriShiftCharacter.h"
+#include "TriShiftHUD.h"
 #include "UObject/ConstructorHelpers.h"
 
 ATriShiftGameMode::ATriShiftGameMode()
@@ -16,4 +17,6 @@ ATriShiftGameMode::ATriShiftGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
+
+	HUDClass = ATriShiftHUD::StaticClass();
 }

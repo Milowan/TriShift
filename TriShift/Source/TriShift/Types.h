@@ -14,3 +14,9 @@ enum switchPhase
 	second,
 	third
 };
+
+enum matchSwitch
+{
+	yes,
+	no
+};

@@ -91,6 +91,21 @@
     <ClCompile Include="..\..\Source\TriShift\StretchPhase.cpp">
       <Filter>Source\TriShift\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\FinishLine.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\yellowPhase.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\yellowTrigger.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\yellowWall.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TriShift\TriShiftHUD.cpp">
+      <Filter>Source\TriShift\Private</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\TriShift\APhase.h">
@@ -151,6 +166,21 @@
       <Filter>Source\TriShift\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\TriShift\StretchPhase.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\FinishLine.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\yellowPhase.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\yellowTrigger.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\yellowWall.h">
+      <Filter>Source\TriShift\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TriShift\TriShiftHUD.h">
       <Filter>Source\TriShift\Public</Filter>
     </ClInclude>
   </ItemGroup>

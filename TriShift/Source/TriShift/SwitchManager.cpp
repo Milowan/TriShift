@@ -20,6 +20,8 @@ void ASwitchManager::BeginPlay()
 	FindAllActors(GetWorld(), phases);
 	FindAllActors(GetWorld(), walls);
 
+	AssignWalls();
+
 	for (int i = 0; i < walls.Num(); ++i)
 	{
 		if (i % 2 == 0)
@@ -34,6 +36,15 @@ void ASwitchManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	for (int i = 0; i < switches.Num(); ++i)
+	{
+		if (switches[i]->Flipped())
+		{
+			phases[i]->TogglePhase(i);
+			switches[i]->Reset();
+		}
+	}
+
 }
 
 void ASwitchManager::AssignWalls()
@@ -42,11 +53,49 @@ void ASwitchManager::AssignWalls()
 	{
 		for (int j = 0; j != walls.Num(); ++j)
 		{
-			if (phases[i]->GetPhaseType() == walls[j]->GetPhase())
-			{
-				walls[i]->GetMesh()->SetVisibility(false);
-				walls[i]->GetMesh()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 				phases[i]->walls.push_back(walls[j]);
+		}
+		if (i == 0)
+		{
+			for (int j = 0; j != walls.Num(); ++j)
+			{
+				if (j % 2 == 0)
+				{
+					walls[j]->switches.push_back(no);
+				}
+				else
+				{
+					walls[j]->switches.push_back(yes);
+				}
+			}
+		}
+		else if (i == 1)
+		{
+			for (int j = 0; j != walls.Num(); ++j)
+			{
+				if (j % 3 == 0)
+				{
+					walls[j]->switches.push_back(no);
+				}
+				else
+				{
+					walls[j]->switches.push_back(yes);
+				}
+			}
+		}
+		else if (i == 2)
+		{
+
+			for (int j = 0; j != walls.Num(); ++j)
+			{
+				if (j % 4 == 0)
+				{
+					walls[j]->switches.push_back(no);
+				}
+				else
+				{
+					walls[j]->switches.push_back(yes);
+				}
 			}
 		}
 	}

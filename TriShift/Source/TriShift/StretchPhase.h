@@ -34,13 +34,6 @@ public:
 
 	std::vector <AWall *> walls;
 
-	void SetPhaseType(switchPhase t);
-
-	switchPhase GetPhaseType();
-
-	void TogglePhase();
-
-	bool Active();
-	void IsActive(bool t);
+	void TogglePhase(int index);
 
 };

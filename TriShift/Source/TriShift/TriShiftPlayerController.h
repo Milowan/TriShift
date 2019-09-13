@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "Runtime/UMG/Public/Blueprint/UserWidget.h"
 #include "TriShiftPlayerController.generated.h"
 
 UCLASS()
@@ -13,8 +14,10 @@ private:
 
 	GENERATED_BODY()
 
+	UUserWidget *UserInterface;
 
 public:
+
 	ATriShiftPlayerController();
 
 	UFUNCTION()
@@ -24,6 +27,8 @@ public:
 	void MoveRight(float axisValue);
 
 	void Interact();
+
+	void SetupUI();
 
 protected:
 

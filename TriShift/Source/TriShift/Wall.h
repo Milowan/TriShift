@@ -7,6 +7,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Types.h"
 #include "ConstructorHelpers.h"
+#include <vector>
 #include "Wall.generated.h"
 
 UCLASS()
@@ -30,6 +31,8 @@ public:
 
 	// Sets default values for this actor's properties
 	AWall();
+
+	std::vector <matchSwitch> switches;
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

@@ -2,17 +2,16 @@
 
 
 #include "Switch.h"
-
-
-
-void ASwitch::SetPhase(switchPhase p)
+ASwitch::ASwitch()
 {
-	phase = p;
+	collisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxCollision"));
+	collisionBox->SetupAttachment(RootComponent);
+	collisionBox->SetRelativeScale3D(FVector(2.5, 2.5, 2));
 }
 
-switchPhase ASwitch::GetPhase()
+bool ASwitch::Flipped()
 {
-	return phase;
+	return flipped;
 }
 
 void ASwitch::Interact()

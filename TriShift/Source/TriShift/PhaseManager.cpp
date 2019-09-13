@@ -21,7 +21,15 @@ void APhaseManager::BeginPlay()
 
 	for (int i = 0; i < phases.Num(); ++i)
 	{
-		phases[i]->DeactivatePhase();
+		if (i == 0)
+		{
+			phases[i]->IsActive(false);
+			phases[i]->ActivatePhase();
+		}
+		else
+		{
+			phases[i]->DeactivatePhase();
+		}
 	}
 
 	pCRef = controllers[0];

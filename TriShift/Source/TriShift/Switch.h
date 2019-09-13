@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Interactable.h"
 #include "Types.h"
+#include "Components/BoxComponent.h"
 #include "Switch.generated.h"
 
 /**
@@ -19,14 +20,15 @@ private:
 
 	bool flipped;
 
-	switchPhase phase;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "SimpleThings", meta = (AllowPrivateAccess = "true"))
+	UBoxComponent *collisionBox;
 	
 
 public:
 
-	void SetPhase(switchPhase p);
-	switchPhase GetPhase();
+	ASwitch();
 
+	bool Flipped();
 	virtual void Interact() override;
 	void Reset();
 };

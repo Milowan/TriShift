@@ -9,3 +9,12 @@ void FindAllActors(UWorld* World, TArray<T*>& Out)
 		Out.Add(*It);
 	}
 }
+
+template<typename T>
+void FindAllObjects(UWorld* World, TArray<T*>& Out)
+{
+	for (TObjectIterator<T> It(World); It; ++It)
+	{
+		Out.Add(*It);
+	}
+}

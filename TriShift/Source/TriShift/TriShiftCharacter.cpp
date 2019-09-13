@@ -9,6 +9,8 @@
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
+#include "TriShiftCharacter.h"
+#include "TriShiftPlayerController.h"
 #include "Materials/Material.h"
 #include "Engine/World.h"
 
@@ -53,21 +55,27 @@ ATriShiftCharacter::ATriShiftCharacter()
 	interactable = NULL;
 }
 
+bool ATriShiftCharacter::GetCanInteract()
+{
+	return canInteract;
+}
+
+void ATriShiftCharacter::SetInteract(bool t)
+{
+	canInteract = t;
+}
+
 void ATriShiftCharacter::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
-
-	if (APlayerController* PC = Cast<APlayerController>(GetController()))
-	{
-		
-	}
 }
 
 void ATriShiftCharacter::OnActorBeginOverlap(UPrimitiveComponent *OverlappedComp, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
 {
-	if (AInteractable *actor = (AInteractable *)OtherActor)
+	AInteractable *actor = (AInteractable *)OtherActor;
+ 	if ( actor != NULL)
 	{
-		canInteract = true;
+		SetInteract(true);
 		interactable = actor;
 	}
 }
@@ -76,7 +84,7 @@ void ATriShiftCharacter::OnActorEndOverlap(UPrimitiveComponent *OverlappedComp, 
 {
 	if ((AInteractable *)OtherActor)
 	{
-		canInteract = false;
+		SetInteract(false);
 	}
 }
 

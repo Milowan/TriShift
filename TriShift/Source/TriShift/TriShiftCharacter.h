@@ -24,9 +24,13 @@ private:
 
 	AInteractable *interactable;
 
+	bool canInteract;
+
 public:
 
-	bool canInteract;
+	bool GetCanInteract();
+
+	void SetInteract(bool t);
 
 	ATriShiftCharacter();
 
